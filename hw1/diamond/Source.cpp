@@ -8,7 +8,6 @@ February 2, 2020
 
 #include <iostream>
 #include <string>
-#include <conio.h>
 using std::cout;
 using std::endl;
 using std::cin;
