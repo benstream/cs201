@@ -29,7 +29,7 @@ int main()
     cout << "Please enter values for your dots." << endl;
     while (cx == NULL or cy == NULL or cz == NULL)
             {
-        // Error Handling
+        // Error Handling and storing values
             try 
                 {
                     storage = std::stof(error);
@@ -92,8 +92,18 @@ int main()
                 cout << "Enter Value for Bz: ";
                 cin >> error;
             }
+            // Formulas for the Calculations
+            if (zb != NULL)
+            {
+                cx = (ya * zb - za * yb);
+                cy = (za * xb - xa * zb);
+                cz = (xa * yb - ya * xb);
 
-        
+                cout << std::setprecision(5) << "A Dot B = " << xa* xb + ya * yb + za * zb << endl;
+                cout << std::setprecision(5) << "A cross B = " << "(" << cx << "," << cy << "," << cz << ")" << endl;
+                break;
+            }
+           
                 }
 
         
