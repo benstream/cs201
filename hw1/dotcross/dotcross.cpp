@@ -41,11 +41,11 @@ int main()
                     {
                         ya = storage;
                     }
-                    else if (zb == NULL)
+                    else if (za == NULL)
                     {
-                        zb = storage;
+                        za = storage;
                     }
-                    if (xb == NULL)
+                    else if (xb == NULL)
                     {
                         xb = storage;
                     }
@@ -66,8 +66,6 @@ int main()
             {
                 cout << "Enter value for Ax: ";
                 cin >> error;
-        
-
             }
             else if (ya == NULL)
                 {
@@ -84,6 +82,17 @@ int main()
                 cout << "Enter Value for Bx: ";
                 cin >> error;
             }
+            else if (yb == NULL)
+            {
+                cout << "Enter Value for By: ";
+                cin >> error;
+            }
+            else if (zb == NULL)
+            {
+                cout << "Enter Value for Bz: ";
+                cin >> error;
+            }
+
         
                 }
 
