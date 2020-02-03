@@ -19,8 +19,8 @@ using std::cin;
 
 // Variables
 float storage = NULL; // Stores values before passing them on
-float xa, ya, za, xb, yb, zb = NULL;
-std::string error = "0";
+float xa, ya, za, xb, yb, zb = NULL; // Input Variables
+std::string error = "0"; // Stores cin to error check
 float cx, cy, cz = NULL; // Reversed naming scheme to making easier to identify the product from the inputs.
 
 
@@ -92,7 +92,7 @@ int main()
                 cout << "Enter Value for Bz: ";
                 cin >> error;
             }
-            // Formulas for the Calculations
+        // Formulas for the Calculations
             if (zb != NULL)
             {
                 cx = (ya * zb - za * yb);
