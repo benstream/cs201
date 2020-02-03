@@ -43,14 +43,15 @@ int main()
             }
           
         }
-          
+    //Figures out what to print given a 0 or negative number      
     if (greatest <= 0)
     {
         cout << "No positive integers were entered.";
     }
-    else
+    else //Prints the greatest number entered.
     {
-        cout << "The greatest number entered:" << greatest;
+      
+        cout << "The greatest number entered: " << greatest;
     }
     
 
