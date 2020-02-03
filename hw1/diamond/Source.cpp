@@ -46,7 +46,7 @@ int main()
     
     int i, rows{}, spaces = 1;
     spaces = lines - 1;
-    for (rows = 1; rows <= lines; rows++)
+    for (rows = 1; rows <= lines; rows++) //top rows
     {
         for (i = 1; i <= spaces; i++)
         {
@@ -60,7 +60,7 @@ int main()
         cout << endl;
     }
     spaces = 1;
-    for (rows = 1; rows <= (lines - 1); rows++)
+    for (rows = 1; rows <= (lines - 1); rows++) //bottom rows
     {
         for (i = 1; i <= spaces; i++)
         {
