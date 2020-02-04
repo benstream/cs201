@@ -16,19 +16,66 @@ using std::cin;
 const int size = 6;
 std::string grid[size][size];
 int x, y = 0;
-std::string error;
-
+int holding, holding2 = 0;
+int choicex, choicey = 0;
 
 int main()
 {
-	cout << "Please choose where on a 10 by 10 grid where you want your X." << endl;
-	for (x = 1; x < size; x++)
+	cout << "Please choose where on a " << size - 1 << " by " << size - 1 << " grid where you want your X." << endl;
+	while (holding >= 0) 
 	{
-		for (y = 1; y < size; y++)
+
+		while (!cin) //checks for valid input
 		{
-			grid[x][y] = " . ";
-			cout << grid[x][y] << " ";
+			cout << "That was no integer! Please Try again." << endl;;
+			cin.clear();
+			cin.ignore();
+					
 		}
-		cout << endl;
+		while (holding >= 0)
+		{
+
+			cout << "Enter Column Value: ";
+			cin >> holding;
+			if (holding >= 0)
+			{
+				choicex = holding;
+				cout << "Enter Row Value: ";
+				cin >> holding2;
+				if (holding2 >= 0)
+				{
+					choicey = holding2;
+					grid[choicey][choicex] = "X";
+				}
+				else
+				{
+					break;
+				}
+			}
+			else
+			{
+				break;
+			}
+		
+
+
+				for (x = 0; x < size; x++)
+				{
+
+					for (y = 0; y < size; y++)
+					{	
+						grid[x][y] = ".";
+				
+						grid[x][0] = std::to_string(x);
+						grid[0][y] = std::to_string(y);
+
+						grid[choicey][choicex] = "X";
+				
+						cout << grid[x][y] << " "; //actually prints grid
+				
+					}
+					cout << endl;
+				}
+		}
 	}
 }
