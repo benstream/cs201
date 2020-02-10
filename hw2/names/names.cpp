@@ -16,8 +16,10 @@ using std::endl;
 using std::cin;
 using std::vector;
 using std::string;
-bool DoesNameExist(const string & nameToFind, const vector<string> & names);
-void InputNames(vector<string> & names);
+
+bool DoesNameExist(const string& nameToFind, const vector<string> & names);
+void InputNames(vector<string>& names);
+void PrintNames(const vector<string>& names);
 
 
 int main(int argc, char **argv)
@@ -28,6 +30,7 @@ int main(int argc, char **argv)
 	cout << endl << "Please Type a name to find: ";
 	cin >> nameToFind;
 	cout << "This name is in the list: " << DoesNameExist(nameToFind, names) << endl;
+	PrintNames(names);
 }
 
 void InputNames(vector<string> & names) // Function to input names
@@ -55,3 +58,11 @@ bool DoesNameExist(const string & nameToFind, const vector<string> & names) // F
 	}
 		return false;
 	}
+
+void PrintNames(const vector<string>& names)
+{
+	for (string name : names)
+	{
+		cout << name << endl;
+	}
+}
