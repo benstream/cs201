@@ -17,7 +17,7 @@ using std::cin;
 int main()
 {
 	int grains = 1;
-	for (int i = 1; i <= 34; i++)
+	for (int i = 1; i <= 1; i++)
 	{
 		cout.unsetf(std::ios::floatfield);
 		cout << "Box: " << i << endl << "Grains: " << grains << endl;
