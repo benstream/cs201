@@ -14,33 +14,56 @@ using std::cin;
 using std::string;
 
 //
-void money(float value, string moneyplural, string money);
+int pennies;
+int nickels;
+int dimes;
+int quarters;
+int halfdollars;
+
+void money(int amount, string moneyplural, string money);
 int main()
 {
-	money(0.25, "Pennies", "Penny");
+	cout << "How many pennies do you have: ";
+		cin >> pennies;
+	
+	cout << "How many nickels do you have: ";
+		cin >> nickels;
+		
+	cout << "How many dimes do you have: ";
+		cin >> dimes;
+
+	cout << "How many quarters do you have: ";
+		cin >> quarters;
+	
+	cout << "How many half dollars do you have: ";
+		cin >> halfdollars;
+
+	money(pennies, "Pennies", "Penny");
+	money(nickels, "Nickels", "Nickel");
+	money(dimes, "Dimes", "Dime");
+	money(quarters, "Quarters", "Quarter");
+	money(halfdollars, "Half Dollars", "Half Dollar");
+
+	double total = pennies * 0.01 + nickels * 0.05 + dimes * 0.10 + quarters * 0.25 + halfdollars * 0.50;
+	cout << "The total is: $" << total;
 }
 
-void money(float value, string moneyplural, string moneysingle) // Function for money counting
+void money(int amount, string moneyplural, string moneysingle) // Function for money counting
 {
-	float amount = 0;
 	if (amount < 0) 
 	{
 		cout << "Negative value provided" << endl;
 		return;
 	}
-	cout << "How many " << moneyplural << " do you have: ";
-	cin >> amount;
 	cout << "You have: " << amount << " ";
 	
-	if (amount >= 0)
+	if (amount == 1)
 	{
-		cout << moneyplural;
+		cout << moneysingle << endl;
 	}
-	else if (amount = 1)
+	else
 	{
-		cout << moneysingle;
+		cout << moneyplural << endl;
 	}
-	 
-	 
 
 }
