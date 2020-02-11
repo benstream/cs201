@@ -10,6 +10,7 @@ names.cpp
 #include <string>
 #include <vector>
 #include<algorithm>
+#include<locale>
 
 using std::cout;
 using std::endl;
@@ -20,6 +21,7 @@ using std::string;
 bool DoesNameExist(const string& nameToFind, const vector<string> & names);
 void InputNames(vector<string>& names);
 void PrintNames(const vector<string>& names);
+void CapsNames(const vector<string>& names);
 
 
 int main(int argc, char **argv)
@@ -31,6 +33,9 @@ int main(int argc, char **argv)
 	cin >> nameToFind;
 	cout << "This name is in the list: " << DoesNameExist(nameToFind, names) << endl;
 	PrintNames(names);
+	cout << "Now I'm going to capitalize the names." << endl;
+	CapsNames(names);
+
 }
 
 void InputNames(vector<string> & names) // Function to input names
@@ -59,10 +64,20 @@ bool DoesNameExist(const string & nameToFind, const vector<string> & names) // F
 		return false;
 	}
 
-void PrintNames(const vector<string>& names)
+void PrintNames(const vector<string>& names) //Function for Printing Names
 {
 	for (string name : names)
 	{
+		cout << name << endl;
+	}
+	cout << endl;
+}
+
+void CapsNames(const vector<string>& names) // Capitalize the Name
+{
+	for (string name : names)
+	{
+		transform(name.begin(), name.end(), name.begin(), ::toupper);
 		cout << name << endl;
 	}
 }
