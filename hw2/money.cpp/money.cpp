@@ -40,7 +40,7 @@ void money(float value, string moneyplural, string moneysingle) // Function for 
 	{
 		cout << moneysingle;
 	}
-
+	 
 	 
 
 }
