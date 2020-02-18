@@ -10,3 +10,4 @@ February 17, 2020
 #include <string>
 
 void printBox(std::string message, int layers);
+void topBottom(std::string message, int layers);
