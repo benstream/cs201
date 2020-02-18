@@ -18,8 +18,16 @@ int main()
 {
 	string message;
 	int layers;
-	cout << "What do you want printed? ";
+
+	cout << "Type Exit_Now as your message to exit." << endl;
+	while (message != "Exit_Now")
+	{
+		cout << "What do you want printed? ";
 		cin >> message;
+		if (message == "Exit_Now") // To Exit Program
+		{
+			return 0;
+		}
 		cout << "How many layers do you want around your text? ";
 		cin >> layers;
 		if (layers < 0)
@@ -30,6 +38,8 @@ int main()
 				cin >> layers;
 			}
 		}
-			printBox(message, layers);
-			return 0;
+		printBox(message, layers);
+		
+	}
+	
 }
