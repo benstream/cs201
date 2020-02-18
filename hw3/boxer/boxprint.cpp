@@ -30,9 +30,6 @@ int main()
 				cin >> layers;
 			}
 		}
-		else
-		{
 			printBox(message, layers);
 			return 0;
-		}
 }
