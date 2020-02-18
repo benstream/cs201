@@ -19,9 +19,14 @@ void topBottom(std::string message, int layers) // For the top and bottom layers
 	string asterisk(layers, '*');
 		for (int i = 0; i < layers; i++)
 		{
-			cout << "*";
+			cout << asterisk;
+			for (int k = 0; k < message.length() + 2; k++)
+			{
+				cout << "*";
+			}
+			cout << asterisk << endl;
 		}
-	cout << asterisk << endl;
+	
 
 }
 
@@ -43,4 +48,5 @@ void printBox(std::string message, int layers) // to print the box body.
 		cout << " ";
 	}
 	cout << asterick << endl;
+	topBottom(message, layers);
 }	
