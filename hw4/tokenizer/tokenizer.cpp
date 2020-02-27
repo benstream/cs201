@@ -38,22 +38,77 @@ unsigned StringToTokenWS(vector<string>& tokens)
 void AnalyseTokens(const vector<string>& tokens)
 {
 	vector<string>categories = { "[integer]","[identifier]","[string]","[whitespace]","[unknown]" };
-	int first = 6;
-	int current = 6;
-	int i = 0;
-		for (string token : tokens)
-		{
-			if (token[0] <= '9' && token[0] >= '0')
-			{
-				for (char c : token)
-				{
-					if (c >= '9' || c <= '0')
-					{
-						cout << categories[5];
-					}
-				}
-			}
-			i++;
-		}
+        int flag = 0; // Determines the token
+        for (auto i : tokens) // Goes through all elements of vector tokens
+        {
+            if (i == "") // TEST IF TOKEN = WHITESPACE
+            {
+                flag = 4;
+            }
 
-}
+            for (int j = 0; j < i.size(); j++) // Goes through all letters of token; int j = element of string
+            {
+                if (flag != 0 && flag != 1) // Stops for loop if token is determined
+                {
+                    break;
+                }
+
+
+                if (i.at(j) == '"' && i.at(i.size() - 1) == '"') // TEST IF TOKEN = STRING LITERAL
+                {
+                    flag = 2;
+                    break;
+                }
+
+
+                for (char c = 48; c <= 57; c++) // TEST IF TOKEN = INTEGER LITERAL; char c = numbers 0-9
+                {
+                    if (i.at(j) == c)
+                    {
+                        flag = 1;
+                        break;
+                    }
+                    else if (i.at(j) != c) // TEST IF TOKEN = IDENTIFIER;
+                    {
+                        flag = 3;
+                    }
+                }
+            }
+
+
+            if (flag == 0)
+            {
+                cout << categories[4] << "\t";
+            }
+
+            if (flag == 1) // Token is integer literal
+            {
+                cout << categories[0] << "\t";
+            }
+
+
+            if (flag == 2) // Token is string literal
+            {
+                cout << categories[2] << "\t";
+                cout << "\"\\\"" << i.substr(1, i.size() - 2) << "\\\"\"" << endl;
+            }
+
+
+            if (flag == 3) // Token is identifier literal
+            {
+                cout << categories[1] << "\t";
+            }
+
+            if (flag == 4) // Token is whitespace literal
+            {
+                cout << categories[3] << "\t";
+            }
+
+            if (flag != 2)
+            {
+                cout << "\"" << i << "\"" << endl;
+            }
+
+            flag = 0; // Resets to test next token
+        }
+    }
