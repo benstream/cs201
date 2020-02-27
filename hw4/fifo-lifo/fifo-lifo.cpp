@@ -85,3 +85,14 @@ void LifoPop(vector<string>& container, string& item)
 		cout << endl << "There is nothing in this container! Please put something in it." << endl << endl;
 	}
 }
+
+// Shared Functions
+
+bool IsContainerEmpty(const vector<string>& container)
+{
+	if (container.size() > 0)
+	{
+		return true;
+	}
+	else return false;
+}
