@@ -22,6 +22,14 @@ int main()
 	int bulls = 0;
 	int cows = 0;
 	while (true)
+	{
+		for (int i = 0; i < 4; i++) // loop to ask the values
+		{
+			cout << "Guess the value at " << i << ":";
+			cin >> guess;
+			guesses.push_back(guess);
+		}
+	}
 
 
 
