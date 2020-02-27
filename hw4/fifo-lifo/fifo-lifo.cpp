@@ -100,10 +100,12 @@ void FifoPop(vector<string>& container, string& item)
 		for (int i = 1; i < container.size(); i++)
 		{
 			TempStorage[i - 1] = container[i];
-			cout << endl << "Last item in the list removed." << endl;
-			cout << endl << "Items in FIFO: ";
-			PrintContainer(container);
+			
 		}
+		container = TempStorage;
+		cout << endl << "Last item in the list removed." << endl;
+		cout << endl << "Items in FIFO: ";
+		PrintContainer(container);
 	}
 	else
 	{
