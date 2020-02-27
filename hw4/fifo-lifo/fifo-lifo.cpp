@@ -96,3 +96,12 @@ bool IsContainerEmpty(const vector<string>& container)
 	}
 	else return false;
 }
+
+void PrintContainer(const vector<string>& container)
+{
+	for (auto i : container) 
+	{
+		cout << " * "<< i << " * ";
+	}
+	cout << endl;
+}
