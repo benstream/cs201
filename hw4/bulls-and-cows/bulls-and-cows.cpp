@@ -32,7 +32,7 @@ int main()
 		for (int i = 0; i < 4; i++)
 		{
 			if (secrets[i] == guesses[i]) bulls++;
-			else if (guesses[i] = secrets[1] || guesses[i] == secrets[2] || guesses[i] == secret[3]) cows++;
+			else if (guesses[i] == secrets[1] || guesses[i] == secrets[2] || guesses[i] == secrets[3]) cows++;
 		}
 	}
 
