@@ -12,7 +12,7 @@ February 26, 2020
 int main()
 {
 	std::vector<std::string> tokens;
-	std::cout << "Enter your text: ";
+	std::cout << "Enter your text, type end to stop: ";
 	StringToTokenWS(tokens);
 	AnalyseTokens(tokens);
 	return 0;

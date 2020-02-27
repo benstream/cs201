@@ -10,65 +10,67 @@ February 26, 2020
 
 bool ReadLine(string& str)
 {
-	std::getline(cin, str);
+    std::getline(cin, str);
 	if (str == "")
 	{
-		return false;
+	    return false;
 	}
-	return true;
+	    return true;
 }
 
 unsigned StringToTokenWS(vector<string>& tokens)
 {
-	string line;
+	string str;
 	string token;
-	while (ReadLine(line))
+	while (ReadLine(str))
 	{
-		std::istringstream instream(line);
+		std::istringstream instream(str);
 		while (instream)
 		{
 			instream >> token;
-			if (token == "end" || token == "End" || token == "END") return tokens.size();
-				tokens.push_back(token + " ");
+			if (token == "end" || token == "End" || token == "END")   
+			    
+                return tokens.size();
+            tokens.push_back(token);
 		}
 	}
-	return 99;
 }
 
-void AnalyseTokens(const vector<string>& tokens)
+// Credit to Jay-Mark Pascua for helping me out with this function
+void AnalyseTokens(const vector<string>& tokens) 
 {
 	vector<string>categories = { "[integer]","[identifier]","[string]","[whitespace]","[unknown]" };
-        int flag = 0; // Determines the token
-        for (auto i : tokens) // Goes through all elements of vector tokens
+        int flag = 0; // variable to assign tokens
+        for (auto i : tokens) // searches tokens
         {
-            if (i == "") // TEST IF TOKEN = WHITESPACE
+            if (i == "") // identifies whitespace
             {
                 flag = 4;
             }
 
-            for (int j = 0; j < i.size(); j++) // Goes through all letters of token; int j = element of string
+            for (int j = 0; j < i.size(); j++) // scans the letters of the token
             {
-                if (flag != 0 && flag != 1) // Stops for loop if token is determined
+                if (flag != 0 && flag != 1) // ends loop when token is discovered
                 {
                     break;
                 }
 
 
-                if (i.at(j) == '"' && i.at(i.size() - 1) == '"') // TEST IF TOKEN = STRING LITERAL
+                if (i.at(j) == '"' && i.at(i.size() - 1) == '"') // Tests if token is string
                 {
                     flag = 2;
                     break;
                 }
 
 
-                for (char c = 48; c <= 57; c++) // TEST IF TOKEN = INTEGER LITERAL; char c = numbers 0-9
+                for (char c = 48; c <= 57; c++) // Tests if token is integer
                 {
                     if (i.at(j) == c)
                     {
                         flag = 1;
                         break;
                     }
-                    else if (i.at(j) != c) // TEST IF TOKEN = IDENTIFIER;
+                    else if (i.at(j) != c) // Tests if token is identifier
                     {
                         flag = 3;
                     }
@@ -81,25 +83,25 @@ void AnalyseTokens(const vector<string>& tokens)
                 cout << categories[4] << "\t";
             }
 
-            if (flag == 1) // Token is integer literal
+            if (flag == 1) //integer literal
             {
                 cout << categories[0] << "\t";
             }
 
 
-            if (flag == 2) // Token is string literal
+            if (flag == 2) //string literal
             {
                 cout << categories[2] << "\t";
                 cout << "\"\\\"" << i.substr(1, i.size() - 2) << "\\\"\"" << endl;
             }
 
 
-            if (flag == 3) // Token is identifier literal
+            if (flag == 3) //identifier literal
             {
                 cout << categories[1] << "\t";
             }
 
-            if (flag == 4) // Token is whitespace literal
+            if (flag == 4) //whitespace literal
             {
                 cout << categories[3] << "\t";
             }
@@ -109,6 +111,6 @@ void AnalyseTokens(const vector<string>& tokens)
                 cout << "\"" << i << "\"" << endl;
             }
 
-            flag = 0; // Resets to test next token
+            flag = 0; // tests the next token
         }
     }
