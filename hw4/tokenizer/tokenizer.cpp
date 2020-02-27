@@ -7,12 +7,6 @@ February 26, 2020
 */
 
 #include "tokenizer.h"
-#include <iostream>
-#include <string>
-#include <vector>
-using std::cout;
-using std::endl;
-using std::cin;
 
 bool ReadLine(string& str)
 {
@@ -22,4 +16,21 @@ bool ReadLine(string& str)
 		return false;
 	}
 	return true;
+}
+
+unsigned StringToTokenWS(vector<string>& tokens)
+{
+	string line;
+	string token;
+	while (ReadLine(line))
+	{
+		std::istringstream instream(line);
+		while (instream)
+		{
+			instream >> token;
+			if (token == "end" || token == "End")
+				tokens.push_back(token + " ");
+		}
+	}
+	return 99;
 }

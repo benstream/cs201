@@ -9,11 +9,14 @@ February 26, 2020
 #include <iostream>
 #include <string>
 #include <vector>
+#include<sstream>
+
 using std::cout;
 using std::endl;
 using std::cin;
 using std::string;
 using std::vector;
+
 
 /*
 Uses getline() to retrieve a string from the user. 
