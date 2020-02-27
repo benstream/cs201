@@ -45,12 +45,16 @@ int main()
 	cout << "~4: POP LIFO Container~" << endl;
 	cout << "~5: Exit Program~" << endl;
 	cout << "Choice: ";
-	while (choice <= 5)
+	while (choice != 5)
 	{
 		getline(cin, choicestring); // Gets Users Input
 		istringstream option(choicestring); // Reads string to find choice
 		option >> choice; // Puts option into choice as int
 
+		if (choice > 5 || choice < 0)
+		{
+			cout << "Please choose a valid Number" << endl;
+		}
 	}
 
     
