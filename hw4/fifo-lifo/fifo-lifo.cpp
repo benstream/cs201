@@ -67,10 +67,21 @@ void FifoPop(vector<string>& container, string& item)
 
 void LifoPush(vector<string>& container, const string& item)
 {
-
+	container.push_back(item);
+	cout << endl << "LIFO Container:";
+	PrintContainer(container);
 }
 
 void LifoPop(vector<string>& container, string& item)
 {
-
+	if (IsContainerEmpty(container) == true)
+	{
+		container.pop_back();
+		cout << endl << "Last item added has been removed." << endl;
+		cout << endl << "Items in LIFO: " << endl;
+	}
+	else 
+	{
+		cout << endl << "There is nothing in this container! Please put something in it." << endl << endl;
+	}
 }
