@@ -28,7 +28,7 @@ unsigned StringToTokenWS(vector<string>& tokens)
 		while (instream)
 		{
 			instream >> token;
-			if (token == "end" || token == "End") return tokens.size();
+			if (token == "end" || token == "End" || token == "END") return tokens.size();
 				tokens.push_back(token + " ");
 		}
 	}
