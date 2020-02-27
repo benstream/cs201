@@ -32,8 +32,28 @@ bool IsContainerEmpty(const vector<string>& container);
 void PrintContainer(const vector<string>& container);
 
 int main()
-{
+{	
+	int choice = 0; // Value for User Choice
+    vector<string> fifo;
+    vector<string> lifo; 
+    string choicestring; 
+    string item;
+	cout << "~Please Choose your action~" << endl;
+	cout << "~1: Add to FIFO Container~" << endl;
+	cout << "~2: POP FIFO Container~" << endl;
+	cout << "~3: Add to LIFO Container~" << endl;
+	cout << "~4: POP LIFO Container~" << endl;
+	cout << "~5: Exit Program~" << endl;
+	cout << "Choice: ";
+	while (choice <= 5)
+	{
+		getline(cin, choicestring); // Gets Users Input
+		istringstream option(choicestring); // Reads string to find choice
+		option >> choice; // Puts option into choice as int
 
+	}
+
+    
 }
 
 // Functions, First in First Out.
