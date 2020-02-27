@@ -55,6 +55,29 @@ int main()
 		{
 			cout << "Please choose a valid Number" << endl;
 		}
+		if (choice == 1)
+		{
+			cout << "What do you want to add to the container? ";
+			getline(cin, item);
+			FifoPush(fifo, item);
+		}
+		else if (choice == 2)
+		{
+			item = "";
+			FifoPop(fifo, item);
+		}
+		else if (choice == 3)
+		{
+			cout << "What do you want to add to the container? ";
+			getline(cin, item);
+			LifoPush(fifo, item);
+		}
+		else if (choice == 4)
+		{
+			item = "";
+			LifoPop(fifo, item);
+		}
+		cout << "Please Select another Option: ";
 	}
 
     
@@ -78,7 +101,8 @@ void FifoPop(vector<string>& container, string& item)
 		{
 			TempStorage[i - 1] = container[i];
 			cout << endl << "Last item in the list removed." << endl;
-			cout << endl << "Items in FIFO: " << endl;
+			cout << endl << "Items in FIFO: ";
+			PrintContainer(container);
 		}
 	}
 	else
@@ -102,7 +126,8 @@ void LifoPop(vector<string>& container, string& item)
 	{
 		container.pop_back();
 		cout << endl << "Last item added has been removed." << endl;
-		cout << endl << "Items in LIFO: " << endl;
+		cout << endl << "Items in LIFO: ";
+		PrintContainer(container);
 	}
 	else 
 	{
