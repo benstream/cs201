@@ -13,3 +13,13 @@ February 26, 2020
 using std::cout;
 using std::endl;
 using std::cin;
+
+bool ReadLine(string& str)
+{
+	std::getline(cin, str);
+	if (str == "")
+	{
+		return false;
+	}
+	return true;
+}
