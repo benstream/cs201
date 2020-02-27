@@ -34,6 +34,11 @@ int main()
 			if (secrets[i] == guesses[i]) bulls++;
 			else if (guesses[i] == secrets[1] || guesses[i] == secrets[2] || guesses[i] == secrets[3]) cows++;
 		}
+		cout << bulls << " bulls and" << cows << " cows" << endl;
+		if (bulls == 4) return 0;
+		cows = 0;
+		bulls = 0;
+		guesses.clear();
 	}
 
 
