@@ -73,3 +73,9 @@ int RandomBetweenN(int first, int last)
         }
     }
 }
+
+// Get a random number between first and last using the rand function
+int RandoBetween(int first, int last)
+{
+    return rand() % last - first + first;
+}
