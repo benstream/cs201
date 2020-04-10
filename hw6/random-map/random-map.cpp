@@ -12,6 +12,14 @@ April 10, 2020
 #include <random>
 #include <cmath>
 
+// Functions for Assignment
+int RandomBetweenU(int first, int last);
+int RandomBetweenN(int first, int last);
+int RandomBetween(int first, int last);
+void PrintDistribution(std::map<int, int>& numbers);
+
+
+
 int main()
 {
     // Seed with a real random value, if available
@@ -37,4 +45,13 @@ int main()
         std::cout << std::fixed << std::setprecision(1) << std::setw(2)
             << p.first << ' ' << std::string(p.second / 200, '*') << '\n';
     }
+}
+
+// Uniform random number between first & last provided
+int RandomBetweenU(int first, int last)
+{
+    std::random_device rd;
+    std::default_random_engine(rd()); // This chooses a random seed
+    std::uniform_int_distribution<> dis(first, last);
+        return dis(gen);
 }
