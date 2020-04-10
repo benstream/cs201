@@ -51,7 +51,7 @@ int main()
 int RandomBetweenU(int first, int last)
 {
     std::random_device rd;
-    std::default_random_engine(rd()); // This chooses a random seed
+    std::default_random_engine gen(rd()); // This chooses a random seed
     std::uniform_int_distribution<> dis(first, last);
         return dis(gen);
 }
