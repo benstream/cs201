@@ -79,3 +79,12 @@ int RandoBetween(int first, int last)
 {
     return rand() % last - first + first;
 }
+
+// Given a map, populate with uniform random Values.
+void PrintDistribution(std::map<int, int>& numbers)
+{
+    for (int n = 0; n < 10000; n++)
+    {
+        numbers[RandomBetweenU(1, 10)]++;
+    }
+}
