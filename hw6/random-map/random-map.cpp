@@ -55,3 +55,21 @@ int RandomBetweenU(int first, int last)
     std::uniform_int_distribution<> dis(first, last);
         return dis(gen);
 }
+
+//Get a normal random number between first and last with the mean and standard deviation of range /4
+int RandomBetweenN(int first, int last)
+{
+    float range = (last - first) / 2;
+    std::random_device rd;
+    std::default_random_engine gen(rd()); // This chooses a random seed
+    std::normal_distribution<> dis((double)first + range, range / 2);
+        int value;
+    while (true)
+    {
+        value = std::round(dis(gen));
+        if (value <= last && value >= first)
+        {
+            return value;
+        }
+    }
+}
