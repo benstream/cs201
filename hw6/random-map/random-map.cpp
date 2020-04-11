@@ -35,6 +35,17 @@ int main()
         std::cout << std::fixed << std::setprecision(1) << std::setw(2)
             << p.first << ' ' << std::string(p.second / 200, '*') << std::endl;
     }
+    std::map<int, int> histN;
+    for (int n = 0; n < 10000; n++)
+    {
+        ++histN[RandomBetweenN(min, max)];
+    }
+    std::cout << "Normal distribution from " << min << " to " << max << std::endl;
+    for (auto p : histN)
+    {
+        std::cout << std::fixed << std::setprecision(1) << std::setw(2)
+            << p.first << ' ' << std::string(p.second / 200, '*') << std::endl;
+    }
 }
 
 // Uniform random number between first & last provided
