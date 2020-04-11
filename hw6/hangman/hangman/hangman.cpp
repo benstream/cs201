@@ -35,6 +35,16 @@ bool isCorrect(vector<string> answer, string guess) // Determines if guess is co
 	return false;
 }
 
+bool alreadyGuessed(map<string, int>& usedGuesses,string guess)
+{
+	map<string, int>::iterator it = usedGuesses.find(guess);
+	if (it != usedGuesses.end())
+	{
+		return true;
+	}
+	else
+		return false;
+}
 
 int main()
 {
