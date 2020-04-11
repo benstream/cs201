@@ -67,6 +67,24 @@ int main()
 	cout << "***WELCOME TO HANGMAN***" << endl;
 	while (attempts != 0 && win == 0)
 	{
-
+		cout << "Remaining Attempts: " << attempts << endl;
+		blankSpace(blank); // Prints Currently hidden Letters
+		cout << endl << "Guess a letter or the word: ";
+		getline(cin, guess);
+		if (alreadyGuessed(usedGuesses, guess))
+		{
+			cout << "You have already guessed that!" << endl; 
+			continue;
+		}
+		if (guess.length() == 1) // determines if the guess is a letter or a word
+		{
+			if (isCorrect(answer, guess))
+			{
+				cout << guess << " is correct! " << endl;
+				usedGuesses[guess] = attempts;
+				attempts--;
+				showLetter(answer, blank, guess);
+			}
+		}
 	}
 }
