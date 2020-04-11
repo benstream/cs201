@@ -73,6 +73,7 @@ void buy(std::map<std::string, Record>& inventory, double& total)
 {
 	cout << "What would you like to buy? ";
 	std::string item;
+	getline(cin, item);
 	if (inventory[item].units > 0)
 	{
 		inventory[item].units -= 1;
@@ -80,7 +81,7 @@ void buy(std::map<std::string, Record>& inventory, double& total)
 	}
 	else
 	{
-		cout << "We don't have any more of your requested item";
+		cout << endl << "We don't have any more of your requested item" << endl;
 	}
 }
 
