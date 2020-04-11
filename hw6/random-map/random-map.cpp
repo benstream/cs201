@@ -24,6 +24,8 @@ int main()
 {
     int min = 1;
     int max = 7;
+   
+    //Normal Distribution
     std::map<int, int> histU;
     for (int n = 0; n < 10000; n++)
     {
@@ -35,6 +37,8 @@ int main()
         std::cout << std::fixed << std::setprecision(1) << std::setw(2)
             << p.first << ' ' << std::string(p.second / 200, '*') << std::endl;
     }
+   
+    //Normal Distribution
     std::map<int, int> histN;
     for (int n = 0; n < 10000; n++)
     {
@@ -42,6 +46,19 @@ int main()
     }
     std::cout << "Normal distribution from " << min << " to " << max << std::endl;
     for (auto p : histN)
+    {
+        std::cout << std::fixed << std::setprecision(1) << std::setw(2)
+            << p.first << ' ' << std::string(p.second / 200, '*') << std::endl;
+    }
+   
+    //Random Distribution
+    std::map<int, int> hist;
+    for (int n = 0; n < 10000; n++)
+    {
+        ++hist[RandomBetween(min, max)];
+    }
+    std::cout << "Random distribution from " << min << " to " << max << std::endl;
+    for (auto p : hist)
     {
         std::cout << std::fixed << std::setprecision(1) << std::setw(2)
             << p.first << ' ' << std::string(p.second / 200, '*') << std::endl;
@@ -76,7 +93,7 @@ int RandomBetweenN(int first, int last)
 }
 
 // Get a random number between first and last using the rand function
-int RandoBetween(int first, int last)
+int RandomBetween(int first, int last)
 {
     return rand() % last - first + first;
 }
@@ -86,6 +103,6 @@ void PrintDistribution(std::map<int, int>& numbers)
 {
     for (int n = 0; n < 10000; n++)
     {
-        numbers[RandomBetweenU(1, 10)]++;
+        ++numbers[RandomBetweenU(1, 10)];
     }
 }
