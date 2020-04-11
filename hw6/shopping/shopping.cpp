@@ -51,3 +51,12 @@ void buy(std::map<std::string, Record>& inventory, double& total)
 		cout << "We don't have any more of your requested item";
 	}
 }
+
+void drop(std::map<std::string, Record>& inventory, double& total)
+{
+	cout << "What would you like to remove from your cart?";
+	std::string item;
+	getline(cin, item);
+	inventory[item].units += 1;
+	total -= inventory[item].unitPrice;
+}
