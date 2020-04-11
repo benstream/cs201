@@ -26,14 +26,23 @@ void drop(std::map<std::string, Record>& inventory, double& total);
 
 int main()
 {
-
+	std::string action;
+	std::map<std::string, Record > inventory;
+	inventory["lettuce"] = { 2.0,10 };
+	inventory["toilet paper roll"] = { 10000.0,2 };
+	inventory["apple"] = { 1.0,12 };
+	inventory["orange"] = { 1.0,13 };
+	inventory["banana"] = { 1.0,11 };
+	double total = 0;
+	printInventory(inventory);
+	cout << "You have a couple choices you can 'view', 'buy', 'exit', or 'remove item'." << endl;
 }
 
 void printInventory(std::map<std::string, Record>& inventory)
 {
 	for (auto item : inventory)
 	{
-		cout << "We have " << item.second.units << " " << item.first << "s for the low price of " << item.second.unitPrice << endl;
+		cout << "We have " << item.second.units << " " << item.first << "s for the low price of " << item.second.unitPrice << " $. "<<endl;
 	}
 }
 
