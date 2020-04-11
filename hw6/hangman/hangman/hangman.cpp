@@ -46,6 +46,16 @@ bool alreadyGuessed(map<string, int>& usedGuesses,string guess)
 		return false;
 }
 
+bool AllLettersFound(vector<string>& answer, vector<string>& blank)
+{
+	if (answer == blank)
+	{
+		return true;
+	}
+	else
+		return false;
+}
+
 int main()
 {
 
