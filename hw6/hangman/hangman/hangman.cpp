@@ -58,5 +58,15 @@ bool AllLettersFound(vector<string>& answer, vector<string>& blank)
 
 int main()
 {
+	vector<string> answer{ "a","b","e" };
+	vector<string> blank{ "_","_","_" };
+	string guess; //The letter guessed
+	map<string, int> usedGuesses; // Stores letters used in guesses.
+	int attempts = answer.size()*2; // The user gets 2x the ammount of letters in the word of tries
+	int win = 0; // variable for win condition, must be 1 to win.
+	cout << "***WELCOME TO HANGMAN***" << endl;
+	while (attempts != 0 && win == 0)
+	{
 
+	}
 }
