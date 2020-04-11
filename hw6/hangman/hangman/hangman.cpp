@@ -15,6 +15,27 @@ April 10, 2020
 #include <map>
 using namespace std;
 
+void blankSpace(vector<string>& blank) // Prints underscores for the letters that havent been revealed
+{
+	for_each(blank.begin(), blank.end(), [](string a) {cout << a; });
+}
+
+void showLetter(vector<string>& answer, vector<string>& blank, string guess) // Shows uh the letters youve guessed.
+{
+	vector<string>::iterator it = find(answer.begin(), answer.end(), guess);
+	blank[it - answer.begin()] = guess;
+}
+
+bool isCorrect(vector<string> answer, string guess) // Determines if guess is correct
+{
+	if (find(answer.begin(), answer.end(), guess) != answer.end())
+	{
+		return true;
+	}
+	return false;
+}
+
+
 int main()
 {
 
