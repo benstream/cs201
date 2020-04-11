@@ -85,6 +85,32 @@ int main()
 				attempts--;
 				showLetter(answer, blank, guess);
 			}
+			else
+			{
+				cout << guess << " is incorrect uh oh!" << endl; 
+				usedGuesses[guess] = attempts;
+				attempts--;
+			}
 		}
+		else if (guess == "abe") // Will end loop if correct
+		{
+			cout << "The word is correct! The Answer is Abe!" << endl;
+			win = 1;
+		}
+		else
+		{
+			cout << guess << " is incorrect! " << endl;
+			usedGuesses[guess] = attempts;
+			attempts--;
+		}
+		if (AllLettersFound(answer, blank))
+		{
+			cout << "The word is complete! The Answer is Abe!" << endl;
+			win = 1;
+		}
+	}
+	if (attempts == 0)
+	{
+		cout << "Uh oh!!!! You're all out of attempts! Try again!";
 	}
 }
