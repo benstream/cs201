@@ -1,5 +1,7 @@
 #include "game.h"
 
+SDL_Texture* playerTex;
+SDL_Rect srcR, destR;
 
 Game::Game()
 {}
@@ -30,11 +32,15 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		}
 		isRunning = true;
 	} 
+
+	SDL_Surface* tmpSurface = IMG_Load("assets/test.png");
+	playerTex = SDL_CreateTextureFromSurface(renderer, tmpSurface);
+	SDL_FreeSurface(tmpSurface);
 	
-	else 
+	/*else 
 	{
 		isRunning = false; 
-	}
+	}*/
 }
 
 void Game::handleEvents()
@@ -53,13 +59,17 @@ void Game::handleEvents()
 void Game::update()
 {
 	cnt++;
+	destR.h = 320;
+	destR.w = 320;
+	destR.x = cnt;
+
 	std::cout << cnt << std::endl;
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	// Add stuff to render here
+	SDL_RenderCopy(renderer, playerTex, NULL, &destR);
 	SDL_RenderPresent(renderer);
 }
 
