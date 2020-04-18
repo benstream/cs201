@@ -5,7 +5,6 @@
 #include <iomanip>
 #include "Color3.hpp"
 
-using std::setw;
 
 // Ensure values are in the range 0 to maxvalue
 constexpr int saturate(int x, int maxvalue) {
@@ -32,7 +31,7 @@ char Color3::asciiValue() const {
 	// Use at least 16 characters, sort these from dark to light
 	// or light to dark and then map the weightedSum() to the range
 	// 0 to 15. Please pick your own characters
-	const char values[] = "%@KHVQDOL=#*^-.";
+	const char values[] = "@#%DAKOIif:;'.-";
 	unsigned darkness = 14 - (weightedSum() / 15) % 15;
 	return values[darkness];
 }
@@ -40,9 +39,9 @@ char Color3::asciiValue() const {
 // Stream Operators for input and output
 
 std::ostream& operator<<(std::ostream& ostr, const Color3& color) {
-	ostr << setw(3) << (int)color.r << " ";
-	ostr << setw(3) << (int)color.g << " ";
-	ostr << setw(3) << (int)color.b << " ";
+	ostr << std::setw(3) << (int)color.r << " ";
+	ostr << std::setw(3) << (int)color.g << " ";
+	ostr << std::setw(3) << (int)color.b << " ";
 	return ostr;
 }
 

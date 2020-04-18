@@ -8,14 +8,6 @@
 #include <sstream>
 #include <fstream>
 
-using std::string;
-using std::vector;
-using std::istringstream;
-using std::ifstream;
-using std::ofstream;
-
-
-
 // Image3 Constructor
 Image3::Image3(unsigned width, unsigned height) {
 	// TODO: resize the pixels array
@@ -49,7 +41,7 @@ void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
 bool Image3::savePPM(const std::string& path) const {
 	// TODO: Save the image to the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
-	ofstream fout(path);
+	std::ofstream fout(path);
 	if (!fout) {
 		return false;
 	}
@@ -61,7 +53,7 @@ bool Image3::savePPM(const std::string& path) const {
 bool Image3::loadPPM(const std::string& path) {
 	// TODO: Load an image from the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
-	ifstream fin(path);
+	std::ifstream fin(path);
 	if (!fin) {
 		return false;
 	}
@@ -100,18 +92,18 @@ std::ostream& operator<<(std::ostream& ostr, const Image3& image) {
 std::istream& operator>>(std::istream& istr, Image3& image) {
 	// TODO: Read in PPM image format from stream
 	// MAKE SURE FORMAT IS GOOD!!!
-	string line;
+	std::string line;
 	istr >> line;
-	if (line != "P3") { // Invalid format
+	if (line != "P3") { // Tells us if the format is invalid
 		throw;
 	}
-	image.pixels.clear(); // Empty the vector to add our data to.
+	image.pixels.clear(); // Empties the vector to put our new data in
 
 	bool widthSet = false;
 	bool heightSet = false;
 	bool colorspaceSet = false;
 
-	vector<int> rgb;
+	std::vector<int> rgb;
 
 	while (true) {
 		std::getline(istr, line);
@@ -119,7 +111,7 @@ std::istream& operator>>(std::istream& istr, Image3& image) {
 			break;
 		}
 		if (line[0] == '#' || line == "") continue;
-		istringstream str(line);
+		std::istringstream str(line);
 		while (str) {
 			int value;
 			str >> value;
