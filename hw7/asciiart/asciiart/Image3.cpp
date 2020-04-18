@@ -10,7 +10,7 @@ Image3::Image3(unsigned width, unsigned height) {
 	// TODO: initialize the internal w and h members
 	w = width;
 	h = height;
-	pixel.resize(width * height);
+	pixels.resize(width * height);
 
 }
 
