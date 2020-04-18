@@ -138,19 +138,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Color3.cpp" />
-    <ClCompile Include="..\Image3.cpp" />
     <ClCompile Include="asciiart.cpp" />
+    <ClCompile Include="Color3.cpp" />
+    <ClCompile Include="Image3.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Color3.hpp" />
-    <ClInclude Include="..\Image3.hpp" />
+    <ClInclude Include="Color3.hpp" />
+    <ClInclude Include="Image3.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\parrot.png" />
+    <Image Include="parrot.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\parrot.ppm" />
+    <None Include="parrot.ppm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

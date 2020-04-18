@@ -8,6 +8,10 @@
 Image3::Image3(unsigned width, unsigned height) {
 	// TODO: resize the pixels array
 	// TODO: initialize the internal w and h members
+	w = width;
+	h = height;
+	pixel.resize(width * height);
+
 }
 
 // Return a pixel from the image
@@ -17,16 +21,31 @@ const Color3& Image3::getPixel(unsigned x, unsigned y) const {
 	// BETTER OPTION 2: return a color
 	// Hint: maybe this is already in the class?
 
+	if ((pixels[y * w + x].r + pixels[y * w + x].g + pixels[y * w + x].b) / 3 > 255 || (pixels[y * w + x].r + pixels[y * w + x].g + pixels[y * w + x].b / 3 < 0))
+	{
+		return{ 0,0,0 };
+	}
+
 	return pixels[y * w + x];
 }
 
 void Image3::setPixel(unsigned x, unsigned y, const Color3& color) {
 	// TODO: Set the pixel to the new color
+	pixels[x * w + x] = color;
 }
 
 bool Image3::savePPM(const std::string& path) const {
 	// TODO: Save the image to the disk
 	// REQUIREMENT: Use the STREAM operators for the file contents
+	int i = 0;
+	Color3 color;
+	std::ifstream file;
+	file.open(path);
+	while (file >> color)
+	{
+
+	}
+	file.close();
 	return false;
 }
 

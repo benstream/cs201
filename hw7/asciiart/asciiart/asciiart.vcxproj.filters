@@ -18,28 +18,28 @@
     <ClCompile Include="asciiart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Color3.cpp">
+    <ClCompile Include="Color3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Image3.cpp">
+    <ClCompile Include="Image3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Color3.hpp">
+    <ClInclude Include="Color3.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Image3.hpp">
+    <ClInclude Include="Image3.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\parrot.png">
+    <Image Include="parrot.png">
       <Filter>Source Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\parrot.ppm">
+    <None Include="parrot.ppm">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
