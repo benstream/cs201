@@ -10,7 +10,18 @@ Month Day, 2020
 #include "Color3.hpp"
 #include "Image3.hpp"
 
-int main(int argc, char** argv)
+using std::cout;
+using std::endl;
+using std::cin;
+using std::ifstream;
+using std::ofstream;
+
+
+int main()
 {
-	return 0;
+
+    Image3 image(0, 0);
+    if (image.loadPPM("parrot.ppm")) {
+        image.printASCII(cout);
+    }
 }
