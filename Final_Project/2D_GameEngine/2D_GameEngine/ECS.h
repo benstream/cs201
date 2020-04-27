@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <vector>
 #include <memory>
@@ -7,17 +6,12 @@
 #include <bitset>
 #include <array>
 
-/*
-Oh okay wow so im following this tutiorial and they having me set up a ECS type system and I have almost no understanding of it so this code
-is very messy for me to understand but I think I get the basic concept of it.
-*/
-
 class Component;
 class Entity;
 
 using ComponentID = std::size_t;
 
-inline ComponentID getComponentID()
+inline ComponentID getComponentTypeID()
 {
 	static ComponentID lastID = 0;
 	return lastID++;
@@ -25,9 +19,9 @@ inline ComponentID getComponentID()
 
 template <typename T> inline ComponentID getComponentTypeID() noexcept 
 {
-
-	satic ComponentID typeID = getComponentTypeID();
-	return typeID();
+	static_assert(std::is_base_of<Component, T>::value, "");
+	static ComponentID typeID = getComponentTypeID();
+	return typeID;
 }
 
 constexpr std::size_t maxComponents = 32;
@@ -59,14 +53,17 @@ public:
 	void update()
 	{
 		for (auto& c : components) c->update();
+	}
+	void draw() 
+	{
 		for (auto& c : components) c->draw();
 	}
-	void draw() {}
-	bool isActive() { return active; }
+	bool isActive() const { return active; }
 	void destroy() { active = false; } // Allows us to destroy inactive entities so we can save system resources
+
 	template <typename T> bool hasComponent() const
 	{
-		return componentBitSet[getComponentID<T>];
+		return componentBitSet[getComponentTypeID<T>()];
 	}
 
 	template <typename T, typename... TArgs>
@@ -86,7 +83,7 @@ public:
 
 	template<typename T> T& getComponent() const
 	{
-		auto ptr(componentArray[getComponentTypeID<t>()])
+		auto ptr(componentArray[getComponentTypeID<T>()]);
 			return *static_cast<T*>(ptr);
 	}
 };
