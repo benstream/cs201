@@ -158,23 +158,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Map.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Components.h" />
-    <ClInclude Include="ECS.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="GameObject.h" />
-    <ClInclude Include="Map.h" />
-    <ClInclude Include="resource.h" />
-    <ClInclude Include="TextureManager.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="2D_GameEngine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\ECS\Components.h" />
+    <ClInclude Include="Src\ECS\ECS.h" />
+    <ClInclude Include="Src\ECS\PositionComponent.h" />
+    <ClInclude Include="Src\ECS\SpriteComponent.h" />
+    <ClInclude Include="Src\game.h" />
+    <ClInclude Include="Src\GameObject.h" />
+    <ClInclude Include="Src\Map.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Src\TextureManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\game.cpp" />
+    <ClCompile Include="Src\GameObject.cpp" />
+    <ClCompile Include="Src\main.cpp" />
+    <ClCompile Include="Src\Map.cpp" />
+    <ClCompile Include="Src\TextureManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
