@@ -5,6 +5,8 @@
 GameObject* player;
 GameObject* enemy;
 
+SDL_Renderer* Game::renderer = nullptr;
+
 
 Game::Game()
 {}
@@ -36,8 +38,8 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = true;
 	} 
 
-	player = new GameObject("assets/player.png", renderer, 0,0);
-	enemy = new GameObject("assets/enemy.png", renderer, 30, 30);
+	player = new GameObject("assets/player.png", 0,0);
+	enemy = new GameObject("assets/enemy.png", 30, 30);
 	
 	/*else 
 	{

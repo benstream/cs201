@@ -16,10 +16,11 @@ public:
 	void clean(); // Cleans
 	bool running() { return isRunning; } // Checks if game is running 
 
+	static SDL_Renderer*renderer;
+
 private:
 	int cnt = 0;
 	bool isRunning;
 	SDL_Window* window;
-	SDL_Renderer* renderer;
 };
 
