@@ -2,6 +2,7 @@
 #include "TextureManager.h"
 #include "Map.h"
 #include "ECS/Components.h"
+#include "Vector2D.h"
 
 Map* map;
 Manager manager;
@@ -41,7 +42,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	} 
 	map = new Map();
 	// ecs implementation
-	player.addComponent<PositionComponent>();
+	player.addComponent<TransformComponent>();
 	player.addComponent<SpriteComponent>("assets/player.png");
 	
 }
@@ -63,8 +64,8 @@ void Game::update() // Updates the Entities
 {
 	manager.refresh();
 	manager.update();
-
-	if (player.getComponent<PositionComponent>().x() > 100)
+	player.getComponent<TransformComponent>().position.Add(Vector2D(5, 0));
+	if (player.getComponent<TransformComponent>().position.x > 100)
 	{
 		player.getComponent<SpriteComponent>().setTex("assets/enemy.png");
 	}
