@@ -3,6 +3,7 @@
 #include "GameObject.h"
 
 GameObject* player;
+GameObject* enemy;
 
 
 Game::Game()
@@ -36,6 +37,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	} 
 
 	player = new GameObject("assets/player.png", renderer, 0,0);
+	enemy = new GameObject("assets/enemy.png", renderer, 30, 30);
 	
 	/*else 
 	{
@@ -59,12 +61,14 @@ void Game::handleEvents()
 void Game::update()
 {
 	player->Update();
+	enemy->Update();
 }
 
 void Game::render()
 {
 	SDL_RenderClear(renderer);
 	player->Render();
+	enemy->Render();
 	SDL_RenderPresent(renderer);
 }
 
