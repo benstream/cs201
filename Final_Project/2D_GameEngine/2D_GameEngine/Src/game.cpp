@@ -8,6 +8,7 @@ Map* map;
 Manager manager;
 
 SDL_Renderer* Game::renderer = nullptr;
+SDL_Event Game::event;
 
 auto& player(manager.addEntity());
 
@@ -44,13 +45,14 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	// ecs implementation
 	player.addComponent<TransformComponent>();
 	player.addComponent<SpriteComponent>("assets/player.png");
-	
+	player.addComponent<KeyboardController>();
 }
 
 void Game::handleEvents()
 {
-	SDL_Event event;
+
 	SDL_PollEvent(&event);
+
 	switch (event.type)
 	{
 	case SDL_QUIT:
@@ -64,12 +66,6 @@ void Game::update() // Updates the Entities
 {
 	manager.refresh();
 	manager.update();
-	player.getComponent<TransformComponent>().position.Add(Vector2D(5, 0));
-	if (player.getComponent<TransformComponent>().position.x > 100)
-	{
-		player.getComponent<SpriteComponent>().setTex("assets/enemy.png");
-	}
-
 }
 
 void Game::render() // Handles Rendering 
